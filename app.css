@@ -122,6 +122,45 @@ h2 {
     margin: 0 0 14px
 }
 
+.card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px
+}
+
+.card-head h2 {
+    margin: 0
+}
+
+.collapser {
+    color: var(--teal);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none
+}
+
+.collapser:hover {
+    text-decoration: underline
+}
+
+.card.collapsed {
+    opacity: .4;
+    transition: opacity .2s
+}
+
+.card.collapsed:hover {
+    opacity: 1
+}
+
+.collapsed .card-head {
+    margin-bottom: 0;
+}
+
 .row {
     display: flex;
     gap: 12px;
@@ -369,8 +408,8 @@ select:focus, input:focus {
 }
 
 #cnt {
-    color:#8b93a1;
-    font-size:14px;
+    color: #8b93a1;
+    font-size: 14px;
 }
 
 .export-import a, .hero a {

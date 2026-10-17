@@ -9,15 +9,30 @@
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113244231', 'ym');
-        ym(113244231, 'init', {ssr:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) {
+                    return;
+                }
+            }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=113244231', 'ym');
+        ym(113244231, 'init', {
+            ssr: true,
+            clickmap: true,
+            referrer: document.referrer,
+            url: location.href,
+            accurateTrackBounce: true,
+            trackLinks: true
+        });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/113244231" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/113244231" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
     <!-- /Yandex.Metrika counter -->
 </head>
 <body>
@@ -40,22 +55,28 @@
         </p>
     </section>
 
-    <section class="card">
-        <h2>Настройки</h2>
-        <div class="row">
-            <label class="f">Пол<select id="sex">
-                <option value="">Выберите</option>
-                <option value="female">Женский</option>
-                <option value="male">Мужской</option>
-            </select></label>
-            <label class="f">Возраст от<select id="from"></select></label>
-            <label class="f">Возраст до<select id="to"></select></label>
+    <section class="card" id="settingsCard">
+        <div class="card-head">
+            <h2>Настройки</h2>
+            <a class="collapser" id="toggleSettings" role="button" tabindex="0" aria-expanded="true"
+               aria-controls="settingsBody">свернуть</a>
         </div>
-        <h2 style="margin-top:22px">Города</h2>
-        <ul class="cities" id="cities"></ul>
-        <div class="ac">
-            <input type="text" id="q" placeholder="Начните вводить название города" autocomplete="off">
-            <div class="dd" id="dd"></div>
+        <div class="settings-body" id="settingsBody">
+            <div class="row">
+                <label class="f">Пол<select id="sex">
+                    <option value="">Выберите</option>
+                    <option value="female">Женский</option>
+                    <option value="male">Мужской</option>
+                </select></label>
+                <label class="f">Возраст от<select id="from"></select></label>
+                <label class="f">Возраст до<select id="to"></select></label>
+            </div>
+            <h2 style="margin-top:22px">Города</h2>
+            <ul class="cities" id="cities"></ul>
+            <div class="ac">
+                <input type="text" id="q" placeholder="Начните вводить название города" autocomplete="off">
+                <div class="dd" id="dd"></div>
+            </div>
         </div>
     </section>
 

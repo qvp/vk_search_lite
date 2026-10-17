@@ -4,7 +4,7 @@ const REPO = (() => {
     return m ? m[1] + '/' + (location.pathname.split('/')[1] || location.hostname) : 'qvp/vk_search'
 })();
 const $ = id => document.getElementById(id);
-const S = {sex: '', from: '', to: '', cities: []};
+const S = {sex: '', from: '', to: '', cities: [], collapsed: false};
 let seen = new Set(), citiesData = null, citiesLoading = null, cur = null;
 
 /* ---------- IndexedDB ---------- */
@@ -57,6 +57,22 @@ fetch('https://api.github.com/repos/' + REPO).then(r => r.json()).then(j => {
 }).catch(() => {
     $('stars').textContent = '0'
 });
+
+/* ---------- свернуть / развернуть настройки ---------- */
+const settingsCard = $('settingsCard'), settingsBody = $('settingsBody'), toggleSettings = $('toggleSettings');
+
+function setSettingsCollapsed(on) {
+    S.collapsed = on;
+    settingsCard.classList.toggle('collapsed', on);
+    settingsBody.hidden = on;
+    toggleSettings.textContent = on ? 'развернуть' : 'свернуть';
+    toggleSettings.setAttribute('aria-expanded', String(!on));
+}
+
+toggleSettings.onclick = () => {
+    setSettingsCollapsed(!settingsCard.classList.contains('collapsed'));
+    saveSettings()
+};
 
 /* ---------- cities ---------- */
 function renderCities() {
@@ -274,7 +290,8 @@ $('file').onchange = async e => {
             $('sex').value = S.sex;
             $('from').value = S.from;
             $('to').value = S.to;
-            renderCities()
+            renderCities();
+            setSettingsCollapsed(!!S.collapsed);
         }
         seen = new Set(await tx('seen', 'readonly', s => s.getAllKeys()));
     } catch (e) {
@@ -283,7 +300,8 @@ $('file').onchange = async e => {
 
     try {
         cur = JSON.parse(localStorage.getItem('vk_current'))
-    } catch (e) {}
+    } catch (e) {
+    }
 
     updateCount();
     renderLink();
