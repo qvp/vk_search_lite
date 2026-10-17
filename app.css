@@ -17,6 +17,7 @@
 body {
     margin: 0;
     background: radial-gradient(900px 400px at 50% -100px, #e4f5ee, transparent), var(--bg);
+    background-repeat: no-repeat;
     color: var(--ink);
     font: 16px/1.5 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif
 }
