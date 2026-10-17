@@ -280,10 +280,16 @@ $('file').onchange = async e => {
     } catch (e) {
         msg('IndexedDB недоступна — данные не сохранятся', 1)
     }
+
     try {
         cur = JSON.parse(localStorage.getItem('vk_current'))
-    } catch (e) {
-    }
+    } catch (e) {}
+
     updateCount();
     renderLink();
+
+    // показываем текущий город в сообщении если
+    if (cur) {
+        msg(`${cur.cityName}, ${cur.d}.${cur.m}.${cur.y}`);
+    }
 })();
