@@ -49,8 +49,9 @@ header {
     margin-right: 6px
 }
 
-.logo span {
+.logo sup {
     color: var(--teal);
+    font-weight: 400;
 }
 
 .star {
