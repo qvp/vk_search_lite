@@ -1,7 +1,7 @@
 // Репозиторий для кнопки лайка. Определяется автоматически на owner.github.io/repo, либо впишите вручную: 'owner/repo'
 const REPO = (() => {
     const m = location.hostname.match(/^(.+)\.github\.io$/);
-    return m ? m[1] + '/' + (location.pathname.split('/')[1] || location.hostname) : 'qvp/vk_search'
+    return m ? m[1] + '/' + (location.pathname.split('/')[1] || location.hostname) : 'qvp/vk_search_lite'
 })();
 const $ = id => document.getElementById(id);
 const S = {sex: '', from: '', to: '', cities: [], collapsed: false};
