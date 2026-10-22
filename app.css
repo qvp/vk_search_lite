@@ -110,6 +110,15 @@ h1 {
     margin: 0
 }
 
+.alert-new-version {
+    font-size: 12px;
+    text-align: center;
+}
+
+.alert-new-version a {
+    color: var(--teal);
+}
+
 .card {
     background: var(--card);
     border: 1px solid var(--line);
