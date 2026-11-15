@@ -113,10 +113,17 @@ h1 {
 .alert-new-version {
     font-size: 12px;
     text-align: center;
+    border: 1px solid red;
+    border-radius: 5px;
 }
 
 .alert-new-version a {
     color: var(--teal);
+}
+
+.alert-new-version span {
+    display: block;
+    color: red;
 }
 
 .card {
