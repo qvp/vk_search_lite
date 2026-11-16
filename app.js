@@ -1,8 +1,3 @@
-// Репозиторий для кнопки лайка. Определяется автоматически на owner.github.io/repo, либо впишите вручную: 'owner/repo'
-const REPO = (() => {
-    const m = location.hostname.match(/^(.+)\.github\.io$/);
-    return m ? m[1] + '/' + (location.pathname.split('/')[1] || location.hostname) : 'qvp/vk_search_lite'
-})();
 const $ = id => document.getElementById(id);
 const S = {sex: '', from: '', to: '', cities: [], collapsed: false};
 let seen = new Set(), citiesData = null, citiesLoading = null, cur = null;
@@ -49,14 +44,6 @@ function fillAges() {
 function esc(s) {
     return String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]))
 }
-
-/* ---------- likes ---------- */
-$('star').href = 'https://github.com/' + REPO;
-fetch('https://api.github.com/repos/' + REPO).then(r => r.json()).then(j => {
-    $('stars').textContent = typeof j.stargazers_count === 'number' ? j.stargazers_count : '0'
-}).catch(() => {
-    $('stars').textContent = '0'
-});
 
 /* ---------- свернуть / развернуть настройки ---------- */
 const settingsCard = $('settingsCard'), settingsBody = $('settingsBody'), toggleSettings = $('toggleSettings');
@@ -309,5 +296,10 @@ $('file').onchange = async e => {
     // показываем текущий город в сообщении если
     if (cur) {
         msg(`${cur.cityName}, ${cur.d}.${cur.m}.${cur.y}`);
+    }
+
+    // display delete alert
+    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        document.getElementById('delete-alert').style.display = 'block';
     }
 })();

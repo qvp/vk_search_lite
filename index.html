@@ -9,26 +9,28 @@
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
-        (function (m, e, t, r, i, k, a) {
-            m[i] = m[i] || function () {
-                (m[i].a = m[i].a || []).push(arguments)
-            };
-            m[i].l = 1 * new Date();
-            for (var j = 0; j < document.scripts.length; j++) {
-                if (document.scripts[j].src === r) {
-                    return;
+        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            (function (m, e, t, r, i, k, a) {
+                m[i] = m[i] || function () {
+                    (m[i].a = m[i].a || []).push(arguments)
+                };
+                m[i].l = 1 * new Date();
+                for (var j = 0; j < document.scripts.length; j++) {
+                    if (document.scripts[j].src === r) {
+                        return;
+                    }
                 }
-            }
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=113244231', 'ym');
-        ym(113244231, 'init', {
-            ssr: true,
-            clickmap: true,
-            referrer: document.referrer,
-            url: location.href,
-            accurateTrackBounce: true,
-            trackLinks: true
-        });
+                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+            })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=113244231', 'ym');
+            ym(113244231, 'init', {
+                ssr: true,
+                clickmap: true,
+                referrer: document.referrer,
+                url: location.href,
+                accurateTrackBounce: true,
+                trackLinks: true
+            });
+        }
     </script>
     <noscript>
         <div><img src="https://mc.yandex.ru/watch/113244231" style="position:absolute; left:-9999px;" alt=""/></div>
@@ -37,25 +39,16 @@
 </head>
 <body>
 <div class="wrap">
-    <header>
-        <div class="logo"><b>ВК</b>поиск <sup>lite</sup></div>
-        <a class="star" id="star" target="_blank" rel="noopener" href="#">
-            <span><svg width="16" height="16" viewBox="0 0 24 24"><path
-                    d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.1 5.5 22l1.7-7.4-5.7-5 7.5-.7z"/></svg>Github</span><span
-                id="stars">…</span>
-        </a>
-    </header>
-
     <section class="hero">
         <h1>Расширенный поиск ВКонтакте</h1>
         <p>
             Разбивает большой поисковой запрос на маленькие и сохраняет уже просмотренные.
             Это поможет обойти ограничение в 1000 пользователей и просто удобно!
-            <a href="https://github.com/qvp/vk_search#вк-поиск-" target="_blank">Подробная инструкция</a>.
+            (Подробная инструкция в README.md)
         </p>
     </section>
 
-    <p class="alert-new-version">
+    <p id="delete-alert" class="alert-new-version">
         <span>ВНИМАНИЕ</span>
         ПРОЕКТ СКОРО БУДЕТ УДАЛЕН.
         <br>
